@@ -21,7 +21,7 @@
 #ifndef CONFIG_INCLUDE
 #define CONFIG_INCLUDE
 // the configured options 
-#define RTLS_VERSION_MAJOR 0
-#define RTLS_VERSION_MINOR 1
+#define TEMPLATE_VERSION_MAJOR 0
+#define TEMPLATE_VERSION_MINOR 1
 #endif
 
