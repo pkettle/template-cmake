@@ -1,4 +1,4 @@
-# RTLS Toolbox #
+# Template Project #
 
 ## Overview ##
 
@@ -8,4 +8,4 @@ The project also includes C-Reference models encapulated in Mex wrappers. These 
 
 ## Directory Structure: ##
 
-RTLS is a self-contained platform independent project. 
+The Template Project platform independent build enviorement utilising the CMake. This is use as starting point for the Author for his own developments. 
