@@ -3,7 +3,7 @@
 ## Overview ##
 
 This project is the proverbial Hello World for the Authors algorithm development activities and is used as a starting point for a platform independent code development. 
-#Credits
+## Credits: ##
 Creadits for the build enviorement goto the authors of the lwext4 project.      
 
 ## Matlab Toolbox ##
@@ -17,31 +17,36 @@ The project and associated libraries compiled for many targets. Here are an exam
 * arm-none-eabi-gcc for ARM cortex-m0/m3/m4 microcontrollers
 * avr-gcc for AVR xmega microcontrollers
 
-### Cross compile for embedded architectures: ###
+### Cross compile for embedded architectures ###
 
-Build cortex-m0 library:
+#### Build cortex-m0 library: ####
 ------------
+```
 make cortex-m0
 cd build_cortex-m0
 make lib
-
-Build cortex-m3 library:
+```
+#### Build cortex-m3 library: #### 
 ------------
+```
 make cortex-m3
 cd build_cortex-m3
 make lib
-
-Build cortex-m4 library:
+```
+#### Build cortex-m4 library: #### 
 ------------
+```
 make cortex-m4
 cd build_cortex-m4
 make lib
-
+```
 ### Cmake and your favorite IDE: ###
 One of the nice feature of CMake is the ability to generate project files for various IDEs.
 
 Build xcode project:
 ------------
+```
 make xcode
 cd xcode
 xcode 
+```
