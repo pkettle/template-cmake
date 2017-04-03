@@ -1,0 +1,49 @@
+#!/bin/bash 
+
+if [ "$(uname)" == "Darwin" ]; then
+	if [ ! -d ./xcode ]; then
+        	make xcode
+	fi    
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+	if [ ! -d ./build_generic ];then
+        	make generic
+        	pushd ./build_generic
+        	make
+        	popd
+	fi
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+ 	if [ ! -d ./visualstudio ]; then
+        make visual
+        fi
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
+	if [ ! -d ./visualstudio ]; then
+        make visual 
+	fi
+fi
+
+if hash doxygen 2>/dev/null; then
+        if [ ! -d ./doc ]; then
+        	doxygen DoxyFile
+        fi
+else
+	echo "Doxygen dependency required for docs."
+	if [ "$(uname)" == "Darwin" ]; then
+		echo "sudo apt-get install doxygen ghostscript graphviz"
+	elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+		 echo "brew install doxygen ghostscript graphviz"
+	fi
+fi
+
+export "TEMPLATE_ROOT=$PWD";
+bashrc_append="export TEMPLATE_ROOT=$PWD";
+for line in $(cat ~/.bashrc); do
+    echo $line
+    if [[ $line = *TEMPLATE_ROOT* ]]; then
+    bashrc_append=
+    fi
+done
+
+if [ -n "$new" ]; then
+    echo "Appending $new to your ~/.bashrc"
+    echo $bashrc_append >> ~/.bashrc
+fi

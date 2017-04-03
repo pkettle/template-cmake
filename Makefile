@@ -53,10 +53,17 @@ xcode:
 	mkdir xcode 
 	cd xcode && cmake -G"Xcode"       \
 	$(COMMON_DEFINITIONS) ..                               
+
 eclipse:
 	rm -R -f build 
 	mkdir build 
 	cd build && cmake -G"Eclipse CDT4 - Unix Makefiles"       \
+	$(COMMON_DEFINITIONS) ..
+
+visual:
+	rm -R -f visualstudio 
+	mkdir visualstudio 
+	cd visualstudio && cmake -G”Visual Studio 10 Win64"       \
 	$(COMMON_DEFINITIONS) ..
 
 lib_only:
@@ -64,7 +71,13 @@ lib_only:
 	mkdir build_lib_only
 	cd build_lib_only && cmake $(COMMON_DEFINITIONS) -DLIB_ONLY=TRUE ..
 
-all: generic cortex-m0 cortex-m3 cortex-m4 lib_only
+doc:
+	rm -R -f doc
+	mkdir doc
+	doxygen DoxyFile
+
+all: generic cortex-m0 cortex-m3 cortex-m4 lib_only doc
+
 
 clean:
 	rm -R -f build_*

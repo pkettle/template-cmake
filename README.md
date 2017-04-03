@@ -40,13 +40,12 @@ make cortex-m4
 cd build_cortex-m4
 make lib
 ```
-### Cmake and your favorite IDE: ###
-One of the nice feature of CMake is the ability to generate project files for various IDEs.
 
-Build xcode project:
-------------
+## Build an xcode project: ## 
+One of the nice feature of CMake is the ability to generate project files for favorite IDEs.
+
 ```
 make xcode
 cd xcode
-xcode 
+open mytoolbox.xcodeproj/
 ```
