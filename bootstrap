@@ -37,13 +37,12 @@ fi
 export "TEMPLATE_ROOT=$PWD";
 bashrc_append="export TEMPLATE_ROOT=$PWD";
 for line in $(cat ~/.bashrc); do
-    echo $line
     if [[ $line = *TEMPLATE_ROOT* ]]; then
     bashrc_append=
     fi
 done
 
-if [ -n "$new" ]; then
-    echo "Appending $new to your ~/.bashrc"
+if [ -n "$bashrc_append" ]; then
+    echo "Appending $bashrc_append to your ~/.bashrc"
     echo $bashrc_append >> ~/.bashrc
 fi
